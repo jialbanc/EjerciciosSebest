@@ -9,9 +9,11 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{alltt}
 \usepackage{verbatim}
 \usepackage{subfig}
 \usepackage{hyperref}
+
 
 \usepackage{url}
 
@@ -59,6 +61,80 @@ Los capitulos a realizar son:
 \section{Preguntas y Respuestas}
 
 \subsection{Capítulo 5: Nombres, Enlaces y Alcances.}
+
+\subsubsection{Pregunta5:}
+Para la prueba en C, se genera un error.
+\begin{lstlisting}[frame=single]
+void main(void)
+{
+	x=21;
+	printf("%d",x);
+	int x;
+	x=42;
+	printf("%d",x);
+}
+\end{lstlisting}
+
+\noindent Errores:
+
+\begin{verbatim}
+	1.-	error C2065  x  identificador no declarado	
+		c:\users\jimmy\documents\visual studio \2011\projects\test\test.c
+
+	2.-	error C2065  x  identificador no declarado	
+		c:\users\jimmy\documents\visual studio\2011\projects\test\test.c
+\end{verbatim}
+
+Para la prueba en C++, se dio este error al compilar.
+
+
+\begin{lstlisting}[frame=single]
+void main(void)
+{
+	
+	cout << "Inserta 21:";
+	cin >> x;
+        int x;
+	x=42;
+	cout << "X vale:" << x;
+	cin.get();cin.get();
+	
+}
+\end{lstlisting}
+
+\noindent Errores:
+
+\begin{verbatim}
+	1.-	error C2065: 'x' : identificador no declarado 
+		c:\users\jimmy\documents\visual studio \2011\projects\test\test.cpp
+\end{verbatim}
+
+Para la prueba en java, se dio el siguiente error.
+
+\begin{lstlisting}[frame=single]
+public class Test {
+
+    static void main(String[] args) {
+        x=21;
+        int x;
+        x=42;
+       System.out.println(x);
+    }
+}
+\end{lstlisting}
+
+\noindent Errores:
+
+\begin{verbatim}
+	Exception in thread "main" java.lang.RuntimeException: 
+	Uncompilable source code - cannot find symbol
+ 	symbol:   variable x
+	location: class test.NewMain
+	at test.NewMain.main(NewMain.java:17)
+Java Result: 1
+
+\end{verbatim}
+
 
 \subsection{Capítulo 6: Tipos de Dato.}
 
