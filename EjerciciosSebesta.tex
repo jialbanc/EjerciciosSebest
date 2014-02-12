@@ -332,6 +332,68 @@ public class Test
 Primeramente la funcion fun retorna 3 y actualiza la variable global x con 17 para luego sumarla con 3 asignandole 20 a la variable x.
 En java el operador + tiene asociatividad de izquierda a derecha.
 
+\subsubsection{Pregunta 5:}
+
+Lenguaje C++
+
+\begin{lstlisting}[frame=single] 
+
+int fun();
+
+extern int x = 10;
+void main(){
+	
+	x = fun()+x;
+	a = a+fun();
+	printf("\%d", x);
+	getch();
+}
+
+int fun() {
+	x = 17;
+	return 3;
+}
+\end{lstlisting}
+
+\noindent Resultados:
+\begin{verbatim}
+	x =  20
+\end{verbatim}
+
+Para este lenguaje podemos ver que siempre en la función al llamar fun(), se va a actualizar la variable global a con 17 y luego se le sumara 3 teniendo asi un valor de 20 en dicha variable.
+
+
+\subsubsection{Pregunta 6:}
+Lenguaje C Sharp
+
+\begin{lstlisting}[frame=single]
+class Test
+    {
+        static int x = 5;
+        static void Main(string[] args)
+        {
+            x = a +fun();
+            Console.WriteLine(x);
+            Console.ReadLine();
+       }
+
+        static int fun()
+        {
+            x = 17;
+            return 3;
+        }
+    }
+\end{lstlisting}
+
+\noindent Resultados:
+OUTPUT\\
+\begin{verbatim}
+	x =  8
+\end{verbatim}
+
+Como podemos ver en C Sharp también se cumple la regla de la asociativad.Es decir la asociatividad va de izquierda a derecha.
+
+
 \subsection{Capítulo 8: Expressions and Assignment Statements}
 
 \subsection{Capítulo 9: SubProgramas.}
