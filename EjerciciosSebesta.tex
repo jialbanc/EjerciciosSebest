@@ -207,8 +207,96 @@ Como podemos ver tanto en lenguaje C++, Java y C sharp no es posible hacer lo qu
 \subsubsection{Pregunta 7:}
 
 \subsection{Capítulo 6: Tipos de Dato.}
+\subsubsection{Pregunta 1:}
+
+\subsubsection{Pregunta 2:}
+
+\subsubsection{Pregunta 7:}
 
 \subsection{Capítulo 7: Expressions and Assignment Statements}
+\subsubsection{Pregunta 2:}
+Traducción al lenguaje C++
+
+\begin{lstlisting}[frame = single]
+
+int fun(int *k); //Prototipo
+
+int main() {
+    int i = 10, j = 10, sum1, sum2;
+    sum1 = (i / 2) + fun(&d);
+    sum2 = fun(&j) + (j / 2);
+    printf("sum1 =  %d  \n ",sum1);
+    printf("sum2 =  %d ",sum2);
+    return 0;
+}
+
+int fun(int *k) {
+    *k += 4;
+    return 3 * (*k) - 1;
+}
+\end{lstlisting}
+
+\noindent Resultados:
+\begin{verbatim}
+	sum1 =  46
+	sum2 =  48
+\end{verbatim}
+
+Dado los resultados obtenidos podemos concluir que la asociatividad es de izquierda a derecha al igual que C.
+
+Traducción al lenguaje Java
+
+\begin{lstlisting}[frame = single]
+public class Test {
+    public static void main(String[] args) {
+        Test t = new Test();
+        int i = 10, j = 10, sum1, sum2;
+        sum1 = (i/2) + t.fun(i);
+        sum2 = t.fun(j) + (j/2);
+        System.out.println("Valor 1: "+sum1);
+        System.out.println("Valor 2: "+sum2);
+    }
+
+    public int fun(int k){
+        k += 4;
+        return (3 * (k) - 1);
+    }
+}
+\end{lstlisting}
+\noindent Resultados:
+\begin{verbatim}
+	sum1 =  46
+	sum2 =  46
+\end{verbatim}
+
+Traducción al lenguaje C sharp
+
+\begin{lstlisting}[frame = single]
+class Test
+    {
+        static void Main(string[] args)
+        {
+            Test t = new Program();
+            int i = 10,j=10,sum1,sum2;
+            sum1 = (i / 2) + t.fun(ref i);
+            sum2 = t.fun(ref j) + (j / 2);
+            System.Console.WriteLine(" "+sum1);
+            System.Console.WriteLine(" "+sum2);
+            Console.Read();
+        }
+        public int fun(ref int k)
+        {
+            k = 4 + k;
+            return 3*(k) - 1;
+        }
+    }
+\end{lstlisting}
+\noindent Resultados:
+\begin{verbatim}
+	sum1 =  46
+	sum2 =  48
+\end{verbatim}
+Dado los resultados obtenidos podemos concluir que la asociatividad es de izquierda a derecha al igual que C y C++.
 
 \subsection{Capítulo 8: Expressions and Assignment Statements}
 
