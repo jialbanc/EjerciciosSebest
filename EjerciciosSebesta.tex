@@ -214,6 +214,7 @@ Como podemos ver tanto en lenguaje C++, Java y C sharp no es posible hacer lo qu
 \subsubsection{Pregunta 7:}
 
 \subsection{Capítulo 7: Expressions and Assignment Statements}
+
 \subsubsection{Pregunta 2:}
 Traducción al lenguaje C++
 
@@ -297,6 +298,39 @@ class Test
 	sum2 =  48
 \end{verbatim}
 Dado los resultados obtenidos podemos concluir que la asociatividad es de izquierda a derecha al igual que C y C++.
+
+\subsubsection{Pregunta 4:}
+
+Lenguaje Java.
+
+\begin{lstlisting}[frame=single] 
+
+public class Test
+    {
+    final static int num=5;
+    static int x=5;
+   
+    public static void main(String[] args){
+        
+          x = fun()+x; 
+          System.out.println(x); 
+    }
+
+    static int fun() {
+            x = 17;
+            return 3;
+    }
+
+}
+\end{lstlisting}
+
+\noindent Resultados:
+\begin{verbatim}
+	x =  20
+\end{verbatim}
+
+Primeramente la funcion fun retorna 3 y actualiza la variable global x con 17 para luego sumarla con 3 asignandole 20 a la variable x.
+En java el operador + tiene asociatividad de izquierda a derecha.
 
 \subsection{Capítulo 8: Expressions and Assignment Statements}
 
