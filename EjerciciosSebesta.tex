@@ -255,10 +255,168 @@ Finalmente ejecutamos la funcion "third"(memoria estatica) el espacio en memoria
 
 \subsection{Capítulo 6: Tipos de Dato.}
 \subsubsection{Pregunta 1:}
+\begin{lstlisting}[frame=single]  
+%#include<stdio.h>
+%#include<stdlib.h>
+%#include<conio.h>
+
+	int fun(int *k) {
+	*k += 4;
+	return 3 * (*k) - 1;
+	}
+//Suppose fun is used in a program as follows:
+	void main() {
+	int i = 10, j = 10, sum1, sum2;
+	sum1 = (i / 2) + fun(&i);
+	sum2 = fun(&j) + (j / 2);
+	getch();
+	}
+
+\end{lstlisting}
+Resultados:
+El resultado de sum1 es: 46, y el de sum2 es 48.
+Esto es debido a que cada expresion se evalua de izquierda aderecha, es decir en sum1 primero se realiza la division de i/2 y despues se cambia el valor de dicha variable, en cambio en sum 2 primero se camba el valor de j, asi que teniendo la misma expresion obtenemos resultados diferentes. 
+
 
 \subsubsection{Pregunta 2:}
 
+Codigo en C++
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+\#include <iostream>
+
+using namespace std;
+int  fun(int *val); 
+int main()
+{
+    int x=10,y=10;
+    int sum1=x/2 + fun(&x);
+    int sum2=fun(&y)+ y/2;
+    
+   cout << sum1 << endl; 
+   cout << sum2 << endl; 
+   
+   return 0;
+}
+
+int fun(int *val){
+*val +=4;
+return 3 * (*val) - 1;
+}
+
+\end{lstlisting}
+Resultado:
+sum1= 46; sum2=48;
+ 
+
+Codigo en C\#
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+using System.IO;
+using System;
+
+class Suma
+{
+    int val;
+    public Suma(int val1){
+        val=val1;
+        
+    }
+    static void Main()
+    {
+        int x=10;
+        int y=10;
+        Suma s=new Suma(x);
+        Suma s1=new Suma(y);
+        int sum1=s.val/2+s.fun(s.val);
+        int sum2=s1.fun(s1.val)+s1.val/2;
+        
+        Console.WriteLine(sum1);
+        Console.WriteLine(sum2);
+    }
+    public int fun(int val){
+        val+=4;
+        return 3*val-1;
+        
+    }
+}
+
+\end{lstlisting}
+Resultado:
+sum1= 46; sum2=48;
+ 
+
+
+Codigo en Java
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+public class Suma{
+
+	public int val; 
+
+	public Suma(val){
+		this.val = val;
+	}
+
+	public int fun(val){
+	 	val+=4;
+        return 3*val-1;
+	}
+	
+	public static void main(String args[]){
+		int x=10;
+		int y=10;
+		Suma s=new Suma(x);
+        Suma s1=new Suma(y);
+        Suma s=new Suma(x);
+        Suma s1=new Suma(y);
+        int sum1=s.val/2+s.fun(s.val);
+        int sum2=s1.fun(s1.val)+s1.val/2;        
+        System.out.print(sum1 + ";"   +sum2);	
+	
+	}
+
+}
+
+
+
+\end{lstlisting}
+Resultado:
+sum1= 46; sum2=48;
+
+En todos los lenguajes utilizados para ejecutar el mismo codigo no dio los mismos resulatdos, es decir en estos tres lenguajes se evalua las sentencias de izquierda a derecha. 
+
+
 \subsubsection{Pregunta 7:}
+\begin{lstlisting}[frame=single] 
+
+public static void main(String[] args) {
+        
+        float val1,val2,val3,val4,val5,result1,result2, result3;
+        result1=result2=result3=0;
+        
+        val1=8;
+        val2=4;
+        val3=3;
+        val4=5;
+        val5=0;
+        result1=val1/val2*val3+val4;
+        result2=val1*val2/val3+val4;
+        if(val5!=0)
+        	result3=val5*val2*(val3+val4);
+        
+        System.out.println("El resultado 1 es: "+result1);
+        System.out.println("El resultado 2 es: "+result2);
+        System.out.println("El resultado 3 es: "+result3);
+}
+
+\end{lstlisting}
+Como sabemos en Java la multiplicacion y la division tienen igual precendecia y asociatividad entre ellas, en cambio la suma y la resta tienen menos precedencia que las 2 anterios; por lo que en el bloque ejecutado siempre se obtendra el resultado de las multiplicacio y divisiones, despues de sumara dicho reslutado con el resto de los valores, en el caso de result3, se hace una evalucion de corto circuito, es decir val5 tiene que tomar un valor diferente de 0 para que result3 tenga un valor diferente de este.
+
+Slaida:
+El resultado 1 es: 11.0
+El resultado 2 es: 15.666667
+El resultado 3 es: 0.0
 
 \subsection{Capítulo 7: Expressions and Assignment Statements}
 
@@ -442,8 +600,37 @@ Como podemos ver en C Sharp también se cumple la regla de la asociativad.Es dec
 
 
 \subsection{Capítulo 8: Expressions and Assignment Statements}
+\subsubsection{Pregunta 4:}
+\begin{lstlisting}[frame=single] 
+void funcion()
+{
+	int i;
+	int op = 0;
+	for (i = 0; i < 3; i++) 
+	{
+		switch (op+1) 
+		{
+			case 3:
+				return;
+			case 2: 
+				{op=0; 
+				return;}
+			case 1:
+				{op += 2; 
+				return;}
+			default:
+				{op= 0;
+				return;}
+		}
+		if (op > 0) return;
+		op = 3 - i;
+	}
 
-\subsection{Capítulo 9: SubProgramas.}
+}
+\end{lstlisting}
+La forma de romper un lazo for y salir de un switch sin usar breaks, es usando return sin ningun valor;
+
+
 
 
         
